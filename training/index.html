@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+  <title>BSides Berlin Security Training 2026 - State-recognized full-day workshop</title>
+  <meta name="description" content="A Phishing Trip with the Bears - hands-on APT malware analysis training. Anerkannte Bildungsveranstaltung nach dem Berliner Bildungszeitgesetz. 12 November 2026, CIC Berlin.">
+
+  <!-- Favicons -->
+  <link href="../assets/img/favicon.png" rel="icon">
+  <link href="../assets/img/apple-touch-icon.png" rel="apple-touch-icon">
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,700,700i|Raleway:300,400,500,700,800" rel="stylesheet">
+
+  <!-- Vendor CSS Files -->
+  <link href="../assets/vendor/aos/aos.css" rel="stylesheet">
+  <link href="../assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css">
+
+  <!-- Template Main CSS File -->
+  <link href="../assets/css/style.css?v=4" rel="stylesheet">
+
+  <style>
+    .training-hero {
+      background: linear-gradient(135deg, #0e1b4d 0%, #1a2f6e 100%);
+      color: white;
+      padding: 80px 0 60px;
+    }
+    .training-hero h1 { font-size: 2.2rem; font-weight: 700; margin-bottom: 8px; }
+    .training-hero .subtitle { font-size: 1.05rem; opacity: 0.85; margin-bottom: 0; }
+    .bildungszeit-badge {
+      display: inline-block;
+      background: #f82249;
+      color: white;
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      padding: 6px 14px;
+      border-radius: 3px;
+      margin-bottom: 20px;
+    }
+    .key-facts {
+      background: #fff;
+      border: 1px solid #eceef5;
+      border-radius: 6px;
+      padding: 32px 36px;
+      margin-top: -40px;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.07);
+    }
+    .key-facts .fact-row {
+      display: flex;
+      gap: 12px;
+      align-items: flex-start;
+      padding: 10px 0;
+      border-bottom: 1px solid #f0f0f5;
+    }
+    .key-facts .fact-row:last-child { border-bottom: none; }
+    .key-facts .fact-icon { color: #f82249; font-size: 18px; flex-shrink: 0; margin-top: 2px; }
+    .key-facts .fact-label { font-size: 11px; letter-spacing: 2px; text-transform: uppercase; color: #9195a2; font-weight: 600; }
+    .key-facts .fact-value { font-size: 15px; color: #2f3138; }
+    .bildungszeit-box {
+      background: #f9f9fb;
+      border-left: 4px solid #f82249;
+      border-radius: 0 6px 6px 0;
+      padding: 28px 32px;
+      margin: 40px 0;
+    }
+    .bildungszeit-box h3 { font-size: 13px; letter-spacing: 3px; text-transform: uppercase; color: #f82249; font-weight: 700; margin-bottom: 14px; }
+    .agenda-table th { font-size: 11px; letter-spacing: 2px; text-transform: uppercase; color: #9195a2; font-weight: 600; border: none; padding: 10px 16px; }
+    .agenda-table td { border-color: #eceef5; padding: 12px 16px; vertical-align: top; font-size: 15px; }
+    .agenda-table tr:first-child td { border-top: none; }
+    .agenda-table .time-col { color: #9195a2; white-space: nowrap; font-size: 14px; }
+    .section-label { font-size: 11px; letter-spacing: 3px; text-transform: uppercase; color: #9195a2; font-weight: 600; margin-bottom: 16px; }
+    .ticket-box {
+      background: #0e1b4d;
+      color: white;
+      border-radius: 6px;
+      padding: 36px;
+      text-align: center;
+    }
+    .ticket-box .price { font-size: 2.4rem; font-weight: 700; }
+    .ticket-box .price-label { font-size: 11px; letter-spacing: 2px; text-transform: uppercase; opacity: 0.6; margin-bottom: 4px; }
+    .ticket-box .btn-ticket {
+      background: #f82249;
+      color: white;
+      border: none;
+      padding: 14px 36px;
+      font-size: 15px;
+      font-weight: 600;
+      border-radius: 4px;
+      text-decoration: none;
+      display: inline-block;
+      margin-top: 20px;
+    }
+    .ticket-box .btn-ticket:hover { background: #d91a3e; color: white; }
+    .stats-form { background: #f9f9fb; border: 1px solid #eceef5; border-radius: 6px; padding: 28px 32px; }
+    .stats-form h4 { font-size: 13px; letter-spacing: 2px; text-transform: uppercase; color: #9195a2; font-weight: 600; margin-bottom: 6px; }
+    .trainer-card { display: flex; gap: 24px; align-items: flex-start; }
+    .trainer-card img { width: 90px; height: 90px; border-radius: 50%; object-fit: cover; flex-shrink: 0; }
+    .secuinfra-note { font-size: 13px; color: #9195a2; margin-top: 12px; }
+  </style>
+</head>
+
+<body>
+
+  <!-- ======= Header ======= -->
+  <header id="header" class="d-flex align-items-center header-inner">
+    <div class="container-fluid container-xxl d-flex align-items-center justify-content-between">
+      <div id="logo">
+        <a href="../index.html"><img src="../assets/img/logo.png" alt="BSides Berlin"></a>
+      </div>
+      <nav id="navbar" class="navbar order-last order-lg-0">
+        <ul>
+          <li><a class="nav-link" href="../index.html">Home</a></li>
+          <li><a class="nav-link" href="../index.html#about">About</a></li>
+          <li><a class="nav-link" href="../index.html#venue">Venue</a></li>
+          <li><a class="nav-link" href="../index.html#buy-tickets">Tickets</a></li>
+          <li><a class="nav-link active" href="index.html">Training</a></li>
+          <li><a class="nav-link" href="../index.html#contact">Contact</a></li>
+        </ul>
+        <i class="bi bi-list mobile-nav-toggle"></i>
+      </nav>
+    </div>
+  </header><!-- End Header -->
+
+  <main id="main">
+
+    <!-- Hero -->
+    <div class="training-hero">
+      <div class="container">
+        <span class="bildungszeit-badge">Anerkannte Bildungsveranstaltung - Berlin Bildungszeitgesetz</span>
+        <h1>BSides Berlin Security Training</h1>
+        <p class="subtitle">State-recognized full-day workshop - 12 November 2026</p>
+      </div>
+    </div>
+
+    <!-- Key Facts -->
+    <section style="padding: 0 0 60px;">
+      <div class="container">
+        <div class="key-facts" data-aos="fade-up">
+
+          <div class="fact-row">
+            <i class="bi bi-shield-lock-fill fact-icon"></i>
+            <div>
+              <div class="fact-label">Training</div>
+              <div class="fact-value" style="font-weight:600; font-size:17px;">"A Phishing Trip with the Bears" - Hands-on APT Malware Analysis</div>
+            </div>
+          </div>
+
+          <div class="fact-row">
+            <i class="bi bi-calendar-event fact-icon"></i>
+            <div>
+              <div class="fact-label">Date &amp; Time</div>
+              <div class="fact-value">Thursday, 12 November 2026 - 09:00-16:00 (doors open 08:30)</div>
+            </div>
+          </div>
+
+          <div class="fact-row">
+            <i class="bi bi-geo-alt-fill fact-icon"></i>
+            <div>
+              <div class="fact-label">Location</div>
+              <div class="fact-value">CIC Berlin, Lohmuhlenstrasse 65, 12435 Berlin</div>
+            </div>
+          </div>
+
+          <div class="fact-row">
+            <i class="bi bi-person-fill fact-icon"></i>
+            <div>
+              <div class="fact-label">Trainer</div>
+              <div class="fact-value">Marius Genheimer - DFIR Specialist &amp; Threat Researcher, SECUINFRA Falcon Team</div>
+            </div>
+          </div>
+
+          <div class="fact-row">
+            <i class="bi bi-people-fill fact-icon"></i>
+            <div>
+              <div class="fact-label">Capacity</div>
+              <div class="fact-value">Maximum 30 seats - named tickets, fixed group for the full day</div>
+            </div>
+          </div>
+
+          <div class="fact-row">
+            <i class="bi bi-tag-fill fact-icon"></i>
+            <div>
+              <div class="fact-label">Price</div>
+              <div class="fact-value">179 EUR early bird / 239 EUR regular</div>
+            </div>
+          </div>
+
+          <div class="fact-row">
+            <i class="bi bi-laptop fact-icon"></i>
+            <div>
+              <div class="fact-label">What to bring</div>
+              <div class="fact-value">A laptop with a browser - no malware analysis experience required</div>
+            </div>
+          </div>
+
+          <div class="fact-row">
+            <i class="bi bi-box-seam fact-icon"></i>
+            <div>
+              <div class="fact-label">Included</div>
+              <div class="fact-value">All training materials, participation certificate (free of charge)</div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- Bildungszeit Section -->
+    <section style="padding: 0 0 60px;">
+      <div class="container">
+        <div class="bildungszeit-box" data-aos="fade-up">
+          <h3>Paid Education Leave (Bildungszeit)</h3>
+          <p style="font-size:16px; line-height:1.8; margin-bottom:16px;">
+            This training is an officially recognized educational event under the Berlin Education Leave Act
+            (Anerkannte Bildungsveranstaltung nach dem Berliner Bildungszeitgesetz,
+            Bescheid der Senatsverwaltung II A 75 - 135944).
+            Employees in Berlin are entitled to paid education leave (Bildungszeit) to attend this training.
+          </p>
+          <p style="font-size:16px; line-height:1.8; margin-bottom:16px;">
+            Download the recognition notice and hand it to your employer together with your leave request.
+            Most employers require the request several weeks in advance - apply early.
+          </p>
+          <a href="bescheid-bildungszeit.pdf" target="_blank" class="btn btn-outline-danger btn-sm" style="font-weight:600; letter-spacing:1px;">
+            <i class="bi bi-download me-2"></i>Download Recognition Notice (Bescheid)
+          </a>
+          <p style="margin-top: 20px; font-size: 14px; color: #6c757d; margin-bottom:0;">
+            Similar laws (Bildungsurlaub) exist in most other German states. Attendees from outside Berlin
+            should check their state's recognition rules with their employer.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Abstract & Learning Objectives -->
+    <section style="padding: 0 0 60px;">
+      <div class="container" data-aos="fade-up">
+        <p class="section-label">About the Training</p>
+        <h2 style="font-size:22px; font-weight:700; color:#0e1b4d; margin-bottom:24px;">A Phishing Trip with the Bears</h2>
+
+        <!-- PLACEHOLDER: paste Marius's abstract from marius.txt below -->
+        <div style="background:#fff8f0; border:1px dashed #f82249; border-radius:4px; padding:20px; color:#9195a2; font-style:italic;">
+          [PLACEHOLDER - abstract and learning objectives from marius.txt to be inserted here]
+        </div>
+        <!-- END PLACEHOLDER -->
+
+      </div>
+    </section>
+
+    <!-- Agenda -->
+    <section class="section-with-bg" style="padding: 60px 0;">
+      <div class="container" data-aos="fade-up">
+        <p class="section-label">Program</p>
+        <h2 style="font-size:22px; font-weight:700; color:#0e1b4d; margin-bottom:8px;">Full-Day Agenda</h2>
+        <p style="color:#9195a2; font-size:14px; margin-bottom:32px;">
+          Schedule as submitted to and approved by the Senatsverwaltung fur Arbeit und Soziales. Do not alter.
+        </p>
+
+        <!-- PLACEHOLDER: translate agenda from bildungszeit-stundenplan.pdf/md exactly, keeping times and unit structure -->
+        <div style="background:#fff8f0; border:1px dashed #f82249; border-radius:4px; padding:20px; color:#9195a2; font-style:italic;">
+          [PLACEHOLDER - agenda from bildungszeit-stundenplan.pdf / bildungszeit-stundenplan.md to be inserted here, translated to English, times and structure unchanged]
+        </div>
+        <!-- END PLACEHOLDER -->
+
+      </div>
+    </section>
+
+    <!-- Trainer -->
+    <section style="padding: 60px 0;">
+      <div class="container" data-aos="fade-up">
+        <p class="section-label">Trainer</p>
+        <div class="trainer-card">
+          <div>
+            <h3 style="font-size:20px; font-weight:700; color:#0e1b4d; margin-bottom:4px;">Marius Genheimer</h3>
+            <p style="color:#9195a2; font-size:14px; margin-bottom:16px;">DFIR Specialist &amp; Threat Researcher, SECUINFRA Falcon Team</p>
+            <!-- PLACEHOLDER: trainer bio from marius.txt -->
+            <div style="background:#fff8f0; border:1px dashed #f82249; border-radius:4px; padding:20px; color:#9195a2; font-style:italic;">
+              [PLACEHOLDER - trainer bio from marius.txt to be inserted here]
+            </div>
+            <!-- END PLACEHOLDER -->
+            <p class="secuinfra-note mt-3"><i class="bi bi-award me-1"></i>Supported by SECUINFRA</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Registration / Statistics -->
+    <section class="section-with-bg" style="padding: 60px 0;">
+      <div class="container" data-aos="fade-up">
+        <p class="section-label">Registration</p>
+        <div class="row g-4">
+
+          <!-- Ticket box -->
+          <div class="col-lg-4">
+            <div class="ticket-box">
+              <div class="price-label">Early Bird</div>
+              <div class="price">179 EUR</div>
+              <div style="margin: 8px 0 4px; opacity:0.6; font-size:13px;">Regular: 239 EUR</div>
+              <div style="font-size:13px; opacity:0.7; margin-bottom:4px;">Named ticket - max 30 seats</div>
+              <!-- PLACEHOLDER: replace href with Stripe ticket link from Natalie -->
+              <a href="#TICKET-LINK-PLACEHOLDER" class="btn-ticket">
+                <i class="bi bi-ticket-perforated-fill me-2"></i>Get your ticket
+              </a>
+              <p style="font-size:12px; opacity:0.5; margin-top:14px; margin-bottom:0;">
+                Training takes place with a minimum of 18 participants.
+                In the event of cancellation, tickets are fully refunded.
+              </p>
+            </div>
+          </div>
+
+          <!-- Stats form notice -->
+          <div class="col-lg-8">
+            <div class="stats-form">
+              <h4>Voluntary questions at registration</h4>
+              <p style="font-size:14px; color:#6c757d; margin-bottom:20px;">
+                These questions are voluntary and anonymized. They are required for our report to the
+                Berlin Senate under §11 BiZeitG (Bildungszeitgesetz).
+              </p>
+              <ul style="font-size:14px; color:#2f3138; line-height:2;">
+                <li>Are you attending via Berlin Bildungszeit? (yes / no)</li>
+                <li><em>If yes:</em></li>
+                <li style="margin-left:20px;">Gender</li>
+                <li style="margin-left:20px;">Age bracket: under 25 / 25-34 / 35-44 / 45-54 / 55 or older</li>
+                <li style="margin-left:20px;">Highest school qualification</li>
+                <li style="margin-left:20px;">Vocational qualification: with degree / without degree / apprentice</li>
+                <li style="margin-left:20px;">Nationality: German / other</li>
+                <li style="margin-left:20px;">Employer type: private (up to 20 employees / 21-100 / over 100) or public sector</li>
+              </ul>
+              <p style="font-size:13px; color:#9195a2; margin-top:16px; margin-bottom:0;">
+                Participation certificate and a copy of the Bildungszeit recognition notice are provided
+                free of charge to all attendees.
+              </p>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- Conference note -->
+    <section style="padding: 40px 0;">
+      <div class="container">
+        <div class="text-center" style="color:#9195a2; font-size:14px; max-width:600px; margin:auto;">
+          <i class="bi bi-info-circle me-1"></i>
+          This is a standalone full-day training on <strong>12 November 2026</strong>.
+          The BSides Berlin conference talks take place on <strong>13 November 2026</strong>
+          and require a separate conference ticket.
+          <a href="../index.html#buy-tickets">Get conference tickets here.</a>
+        </div>
+      </div>
+    </section>
+
+  </main><!-- End #main -->
+
+  <!-- ======= Footer ======= -->
+  <footer id="footer">
+    <div class="container">
+      <div class="copyright">
+        &copy; Copyright <strong>BSides Berlin</strong>. All Rights Reserved
+      </div>
+      <div class="credits">
+        <a href="../imprint.html">Imprint</a> &nbsp;·&nbsp;
+        Designed by <a href="https://bootstrapmade.com/">BootstrapMade</a>
+      </div>
+    </div>
+  </footer>
+
+  <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+
+  <!-- Vendor JS Files -->
+  <script src="../assets/vendor/aos/aos.js"></script>
+  <script src="../assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+  <!-- Template Main JS File -->
+  <script src="../assets/js/main.js"></script>
+
+</body>
+
+</html>
