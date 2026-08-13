@@ -243,11 +243,37 @@
         <p class="section-label">About the Training</p>
         <h2 style="font-size:22px; font-weight:700; color:#0e1b4d; margin-bottom:24px;">A Phishing Trip with the Bears</h2>
 
-        <!-- PLACEHOLDER: paste Marius's abstract from marius.txt below -->
-        <div style="background:#fff8f0; border:1px dashed #f82249; border-radius:4px; padding:20px; color:#9195a2; font-style:italic;">
-          [PLACEHOLDER - abstract and learning objectives from marius.txt to be inserted here]
-        </div>
-        <!-- END PLACEHOLDER -->
+        <p style="font-size:16px; line-height:1.8; color:#2f3138; margin-bottom:16px;">
+          This beginner-friendly, hands-on malware analysis workshop is split into three parts:
+          First, we trace the full attack chain of a real-world Fancy Bear (APT28) intrusion.
+          Next, we dig into the backend infrastructure behind a Roundcube credential phishing operation.
+          Finally, you'll put both skill sets to work on a multi-stage PDF sample attributed to Cozy Bear (APT29).
+        </p>
+        <p style="font-size:16px; line-height:1.8; color:#2f3138; margin-bottom:24px;">
+          This workshop is designed and paced for beginners. No prior malware analysis experience is required.
+          Basic familiarity with the Windows operating system is a plus.
+        </p>
+
+        <h3 style="font-size:18px; font-weight:700; color:#0e1b4d; margin-bottom:12px;">You will learn</h3>
+        <ul style="font-size:15px; color:#2f3138; line-height:2; margin-bottom:24px;">
+          <li>How to analyze phishing emails and extract indicators from mail headers</li>
+          <li>How to identify and dissect malicious Office documents</li>
+          <li>How to spot persistence techniques in Windows</li>
+          <li>How to reverse simple string obfuscation</li>
+          <li>How threat actors repurpose open-source tools and abuse cloud services to blend into normal traffic</li>
+          <li>How to identify open directories in attacker infrastructure and analyze credential phishing websites safely</li>
+          <li>How to investigate Cross-Site-Scripting attack vectors</li>
+          <li>How to analyze malicious PDF files and local malicious JavaScript</li>
+        </ul>
+
+        <h3 style="font-size:18px; font-weight:700; color:#0e1b4d; margin-bottom:12px;">What to bring</h3>
+        <p style="font-size:15px; line-height:1.8; color:#2f3138; margin-bottom:0;">
+          A laptop with any operating system, a modern web browser and an archive tool that extracts
+          encrypted ZIP files (e.g. 7-zip). No code is executed on your machine and no downloads are
+          needed before the workshop; all exercise material is provided via the course platform.
+          If you prefer working in a VM, the free <a href="https://remnux.org/" target="_blank" rel="noopener">REMnux</a>
+          distribution is a good option.
+        </p>
 
       </div>
     </section>
@@ -261,11 +287,32 @@
           Schedule as submitted to and approved by the Senatsverwaltung fur Arbeit und Soziales. Do not alter.
         </p>
 
-        <!-- PLACEHOLDER: translate agenda from bildungszeit-stundenplan.pdf/md exactly, keeping times and unit structure -->
-        <div style="background:#fff8f0; border:1px dashed #f82249; border-radius:4px; padding:20px; color:#9195a2; font-style:italic;">
-          [PLACEHOLDER - agenda from bildungszeit-stundenplan.pdf / bildungszeit-stundenplan.md to be inserted here, translated to English, times and structure unchanged]
+        <div class="table-responsive">
+          <table class="table table-bordered" style="font-size:14px; background:#fff;">
+            <thead>
+              <tr style="background:#0e1b4d; color:#fff;">
+                <th style="white-space:nowrap;">Time</th>
+                <th>Unit</th>
+                <th>Content</th>
+                <th>Format</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr><td style="white-space:nowrap;">08:30&ndash;09:00</td><td>&ndash;</td><td>Registration and attendance check-in</td><td>&ndash;</td></tr>
+              <tr><td style="white-space:nowrap;">09:00&ndash;09:45</td><td>1</td><td>Introduction: workshop flow and quiz platform; background on APT28 ("Fancy Bear") and the geopolitical context of phishing campaigns</td><td>Talk + short practical quiz</td></tr>
+              <tr><td style="white-space:nowrap;">09:45&ndash;10:30</td><td>2</td><td>Payload delivery and exploitation: analyzing a real phishing email, indicators in mail headers, dissecting a malicious MS Office attachment with open-source tools</td><td>Short lecture + hands-on exercise, quiz review</td></tr>
+              <tr style="background:#f6f7fd;"><td style="white-space:nowrap;">10:30&ndash;10:45</td><td>&ndash;</td><td><em>Break</em></td><td>&ndash;</td></tr>
+              <tr><td style="white-space:nowrap;">10:45&ndash;11:30</td><td>3</td><td>Installation, command and control, persistence: Windows persistence techniques, steganography, simple cryptography and deobfuscation, .NET malware analysis, abuse of cloud services</td><td>Short lecture + hands-on exercise, quiz review</td></tr>
+              <tr><td style="white-space:nowrap;">11:30&ndash;12:15</td><td>4</td><td>Phishing backend investigation I: open directories in attacker infrastructure, anatomy of the Roundcube campaign, web attack vectors</td><td>Talk + short practical quiz</td></tr>
+              <tr style="background:#f6f7fd;"><td style="white-space:nowrap;">12:15&ndash;13:15</td><td>&ndash;</td><td><em>Lunch break</em></td><td>&ndash;</td></tr>
+              <tr><td style="white-space:nowrap;">13:15&ndash;14:00</td><td>5</td><td>Phishing backend investigation II: safely analyzing credential phishing websites, investigating Cross-Site-Scripting vectors</td><td>Hands-on exercise validated via the quiz platform</td></tr>
+              <tr><td style="white-space:nowrap;">14:00&ndash;14:45</td><td>6</td><td>APT29 PDF attack chain I: analyzing a malicious PDF file and local malicious JavaScript (guided)</td><td>Guided hands-on exercise, solo or in pairs</td></tr>
+              <tr style="background:#f6f7fd;"><td style="white-space:nowrap;">14:45&ndash;15:00</td><td>&ndash;</td><td><em>Break</em></td><td>&ndash;</td></tr>
+              <tr><td style="white-space:nowrap;">15:00&ndash;15:45</td><td>7</td><td>APT29 PDF attack chain II: independent analysis of the multi-stage sample with trainer support; recap, transfer to your daily work, final quiz</td><td>Hands-on exercise + moderated wrap-up</td></tr>
+              <tr><td style="white-space:nowrap;">15:45&ndash;16:00</td><td>&ndash;</td><td>Closing, handout of participation certificates</td><td>&ndash;</td></tr>
+            </tbody>
+          </table>
         </div>
-        <!-- END PLACEHOLDER -->
 
       </div>
     </section>
@@ -278,11 +325,12 @@
           <div>
             <h3 style="font-size:20px; font-weight:700; color:#0e1b4d; margin-bottom:4px;">Marius Genheimer</h3>
             <p style="color:#9195a2; font-size:14px; margin-bottom:16px;">DFIR Specialist &amp; Threat Researcher, SECUINFRA Falcon Team</p>
-            <!-- PLACEHOLDER: trainer bio from marius.txt -->
-            <div style="background:#fff8f0; border:1px dashed #f82249; border-radius:4px; padding:20px; color:#9195a2; font-style:italic;">
-              [PLACEHOLDER - trainer bio from marius.txt to be inserted here]
-            </div>
-            <!-- END PLACEHOLDER -->
+            <p style="font-size:15px; line-height:1.8; color:#2f3138; margin-bottom:0;">
+              Marius Genheimer is a DFIR Specialist and Threat Researcher with the SECUINFRA Falcon Team in Berlin.
+              He specializes in malware analysis and defensive security training, and is a training instructor for
+              the five-day defensive OSDA training with the Red&amp;Blue Alliance. In 2026 he has taught hands-on
+              workshops at BSides Ljubljana, BSides Luxembourg, BSides Vilnius and Pass the SALT.
+            </p>
             <p class="secuinfra-note mt-3"><i class="bi bi-award me-1"></i>Supported by SECUINFRA</p>
           </div>
         </div>
