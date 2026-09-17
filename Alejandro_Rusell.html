@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+  <title>BSides Berlin - Alejandro Rusell</title>
+  <meta content="Alejandro Rusell at BSides Berlin 2026: The GitHub OIDC Trust Problem: When You Trust the Wrong String" name="description">
+  <meta content="" name="keywords">
+
+  <!-- Favicons -->
+  <link href="assets/img/favicon.png" rel="icon">
+  <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,700,700i|Raleway:300,400,500,700,800" rel="stylesheet">
+
+  <!-- Vendor CSS Files -->
+  <link href="assets/vendor/aos/aos.css" rel="stylesheet">
+  <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css">
+  <link href="assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
+  <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
+
+  <!-- Template Main CSS File -->
+  <link href="assets/css/style.css?v=4" rel="stylesheet">
+
+  <!-- =======================================================
+  * Template Name: TheEvent - v4.10.0
+  * Template URL: https://bootstrapmade.com/theevent-conference-event-bootstrap-template/
+  * Author: BootstrapMade.com
+  * License: https://bootstrapmade.com/license/
+  ======================================================== -->
+</head>
+
+<body>
+
+  <!-- ======= Header ======= -->
+  <header id="header" class="d-flex align-items-center header-inner">
+    <div class="container-fluid container-xxl d-flex align-items-center">
+
+      <div id="logo" class="me-auto">
+        <a href="/" class="scrollto"><img src="assets/img/logo.png" alt="BSides Berlin" title=""></a>
+      </div>
+
+      <nav id="navbar" class="navbar order-last order-lg-0">
+        <ul>
+          <li><a class="nav-link" href="/">Home</a></li>
+          <li><a class="nav-link" href="/#workshop">Training</a></li>
+          <li><a class="nav-link" href="/#buy-tickets">Tickets</a></li>
+          <li><a class="nav-link" href="/#supporters">Sponsors</a></li>
+          <li><a class="nav-link" href="/#about">About</a></li>
+          <li><a class="nav-link active" href="/#speakers">Speakers</a></li>
+          <li><a class="nav-link" href="/#schedule">Schedule</a></li>
+          <li><a class="nav-link" href="/#venue">Venue</a></li>
+          <li><a class="nav-link" href="/#committee">Review committee</a></li>
+          <li><a class="nav-link" href="/#contact">Contact</a></li>
+        </ul>
+        <i class="bi bi-list mobile-nav-toggle"></i>
+      </nav><!-- .navbar -->
+
+      <a class="buy-tickets" href="/#buy-tickets">Buy Tickets</a>
+
+    </div>
+  </header><!-- End Header -->
+
+  <main id="main" class="main-page">
+
+    <!-- ======= Speaker Details Section ======= -->
+    <section id="speakers-details">
+      <div class="container">
+        <div class="section-header">
+          <h2>Speaker Details</h2>
+        </div>
+
+        <div class="row">
+          <div class="col-md-6">
+            <img src="assets/img/speakers/AR.jpg" alt="Alejandro Rusell" class="img-fluid">
+          </div>
+
+          <div class="col-md-6">
+            <div class="details">
+              <h2>Alejandro Rusell</h2>
+              <p><strong>Senior Cloud Security Engineer @ Miro</strong></p>
+              <div class="social">
+                <a href="https://www.linkedin.com/in/arusell" target="_blank"><i class="bi bi-linkedin"></i></a>
+              </div>
+              <p>Alejandro Rusell is a Cloud Security Engineer focused on designing and operating secure cloud infrastructure at scale, currently working in Berlin as Senior Cloud Security Engineer at Miro. His experience over the past decade spans different technical roles: Staff Security Engineer on the Cloud Security Team at Trade Republic, Security Engineer at OLX Group, and, prior to that, Technical Leader at Avature. Earlier in his career, he served as Information Security Manager at the Ministry of Justice and Human Rights of Argentina, and as an Information Technology and Security Architect at a company of Grupo BAPRO. He has made minor contributions to OWASP Top Ten 2010, and co-organized Agile Open Bs. As. Seguridad in 2013, 2014, and 2015.</p>
+              <h3>The GitHub OIDC Trust Problem: When You Trust the Wrong String</h3>
+              <p><strong>Friday, 13 November 2026, 11:10 - 11:50</strong></p>
+              <p>Everyone tells you to replace long-lived CI/CD credentials with OIDC, and for good reason: a short-lived, per-run token beats a static key sitting in a secrets manager. But GitHub Actions ships one property that quietly undermines the fix: GitHub itself is the OIDC issuer for every workflow on the platform, yours and everyone else's, and it authenticates all of them exactly the same way. Authentication is basically a given, as the token's signature will validate no matter which workflow requested it. The real security decision scopes down to authorization: how your cloud provider processes the claims inside that token. That's where the structural blind spot is.</p>
+              <p>GitHub builds the identity claim as a multi-segment value, gluing together organization, repository, branch, and workflow information. AWS's trust-policy engine, and its equivalents elsewhere, validates the whole thing as one opaque string. A wildcard doesn't know where one piece of information ends and the next begins, and that's exactly the gap behind the wildcard-trust-policy findings that keep surfacing in the wild.</p>
+              <p>This talk gives you the mental model for why that keeps happening, walks through GitHub's and AWS's changes during 2026 to how identity is expressed and validated, and shows precisely which parts of the problem they do and don't fix, with a demo of building and matching a vulnerable trust policy, not just slides. You'll leave knowing exactly what pattern to grep your own trust policies for tonight.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main><!-- End #main -->
+
+  <!-- ======= Footer ======= -->
+  <footer id="footer">
+    <div class="container">
+      <div class="copyright">
+        &copy; Copyright <strong>BSides Berlin</strong>. All Rights Reserved
+      </div>
+      <div class="credits">
+        <a href="imprint.html">Imprint</a> &nbsp;·&nbsp;
+        Designed by <a href="https://bootstrapmade.com/">BootstrapMade</a>
+      </div>
+    </div>
+  </footer><!-- End Footer -->
+
+  <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+
+  <!-- Vendor JS Files -->
+  <script src="assets/vendor/aos/aos.js"></script>
+  <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="assets/vendor/glightbox/js/glightbox.min.js"></script>
+  <script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
+
+  <!-- Template Main JS File -->
+  <script src="assets/js/main.js"></script>
+
+</body>
+
+</html>
